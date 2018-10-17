@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/splash_graph" app:startDestination="@id/splashFragment">
+
+
+    <fragment android:id="@+id/splashFragment"
+              android:name="com.noble.activity.dembeliscoming.fragments.SplashFragment"
+              android:label="SplashFragment">
+        <action app:destination="@id/loginFragment"
+                app:popUpTo="@+id/splash_graph"
+                app:popUpToInclusive="true"
+                android:id="@+id/splashToLogin"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment android:id="@+id/loginFragment" android:name="com.noble.activity.dembeliscoming.fragments.LoginFragment"
+              android:label="LoginFragment">
+        <action android:id="@+id/action_loginFragment_to_mainActivity2" app:destination="@id/mainActivity"
+                app:enterAnim="@anim/slide_in_right" app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left" app:popExitAnim="@anim/slide_out_right"
+                app:launchSingleTop="true" app:popUpTo="@+id/splash_graph" app:popUpToInclusive="true"/>
+    </fragment>
+    <activity android:id="@+id/mainActivity" android:name="com.noble.activity.dembeliscoming.activities.MainActivity"
+              android:label="activity_main" tools:layout="@layout/activity_main"/>
+</navigation>
