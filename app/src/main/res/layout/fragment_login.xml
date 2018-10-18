@@ -5,25 +5,40 @@
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent" >
 
-    <TextView
-            android:id="@+id/login_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Login here"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/login_btn"
-            android:textSize="30dp"/>
+    <ImageView
+            android:id="@+id/login_image"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/gasmask"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+            android:id="@+id/name_input"
+            app:layout_constraintTop_toBottomOf="@+id/login_image"
+            style="@style/login_input"
+            android:inputType="textPersonName"
+            android:hint="Soldier name"
+            android:background="@drawable/login_input_bg"/>
+
+    <Button
+            android:id="@+id/start_date_btn"
+            app:layout_constraintTop_toBottomOf="@id/name_input"
+            style="@style/login_input"
+            android:text="Start date"/>
+
+    <Button
+            android:id="@+id/end_date_btn"
+            app:layout_constraintTop_toBottomOf="@id/start_date_btn"
+            style="@style/login_input"
+            android:text="End date"/>
 
     <Button
             android:id="@+id/login_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Go to main"
-            app:layout_constraintStart_toStartOf="@id/login_text"
-            app:layout_constraintEnd_toEndOf="@id/login_text"
-            app:layout_constraintTop_toBottomOf="@id/login_text"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/end_date_btn"
+            style="@style/login_button"
+            android:text="Log In"/>
 
 </android.support.constraint.ConstraintLayout>
