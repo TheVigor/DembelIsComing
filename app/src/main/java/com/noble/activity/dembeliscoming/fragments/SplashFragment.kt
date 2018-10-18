@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation.findNavController
 import com.noble.activity.dembeliscoming.R
+import com.noble.activity.dembeliscoming.soldierPrefs
 import kotlinx.android.synthetic.main.fragment_splash.*
 
 
@@ -25,9 +26,12 @@ class SplashFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         next_btn.setOnClickListener {
-            findNavController(it).navigate(R.id.splashToLogin)
+            if (soldierPrefs.isSoldierLoggedIn()) {
+                findNavController(it).navigate(R.id.mainActivity)
+            } else {
+                findNavController(it).navigate(R.id.splashToLogin)
+            }
         }
     }
 }
