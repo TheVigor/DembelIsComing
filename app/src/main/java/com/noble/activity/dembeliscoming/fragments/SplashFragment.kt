@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils.loadAnimation
 import androidx.navigation.Navigation.findNavController
 import com.noble.activity.dembeliscoming.R
 import com.noble.activity.dembeliscoming.soldierPrefs
@@ -26,12 +28,24 @@ class SplashFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        next_btn.setOnClickListener {
-            if (soldierPrefs.isSoldierLoggedIn()) {
-                findNavController(it).navigate(R.id.mainActivity)
-            } else {
-                findNavController(it).navigate(R.id.splashToLogin)
+        val fadingText: Animation = loadAnimation(context, R.anim.fade_in)
+        val fadingLogo: Animation = loadAnimation(context, R.anim.fade_in)
+        splash_text.startAnimation(fadingText)
+        splash_logo.startAnimation(fadingLogo)
+
+        fadingLogo.setAnimationListener(object : Animation.AnimationListener
+        {
+            override fun onAnimationRepeat(p0: Animation?) {}
+            override fun onAnimationStart(p0: Animation?) {}
+
+            override fun onAnimationEnd(p0: Animation?) {
+                if (soldierPrefs.isSoldierLoggedIn()) {
+                    findNavController(splash_logo).navigate(R.id.mainActivity)
+                } else {
+                    findNavController(splash_logo).navigate(R.id.splashToLogin)
+                }
             }
-        }
+        })
+
     }
 }
