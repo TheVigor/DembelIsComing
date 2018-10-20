@@ -1,45 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto"
-                                             xmlns:tools="http://schemas.android.com/tools"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent"
-                                             android:background="@color/darkish">
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/scroll_view"
+        android:scrollbars="none"
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-            android:id="@+id/login_image"
+    <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@drawable/gasmask"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginTop="30dp"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:layout_height="wrap_content"
+            android:background="@color/darkish">
 
-    <EditText
-            android:id="@+id/name_input"
-            app:layout_constraintTop_toBottomOf="@+id/login_image"
-            style="@style/login_input"
-            android:inputType="textPersonName"
-            android:hint="Soldier name"
-            android:background="@drawable/login_input_bg"/>
+        <TextView
+                android:id="@+id/soldier_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New soldier"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/login_image"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
 
-    <Button
-            android:id="@+id/start_date_btn"
-            app:layout_constraintTop_toBottomOf="@id/name_input"
-            style="@style/login_input"
-            android:text="Start date"/>
 
-    <Button
-            android:id="@+id/end_date_btn"
-            app:layout_constraintTop_toBottomOf="@id/start_date_btn"
-            style="@style/login_input"
-            android:text="End date"/>
+        <ImageView
+                android:id="@+id/login_image"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:src="@drawable/dogtag"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintTop_toBottomOf="@id/soldier_text"/>
 
-    <Button
-            android:id="@+id/login_btn"
-            app:layout_constraintTop_toBottomOf="@+id/end_date_btn"
-            style="@style/login_button"
-            android:text="Log In"/>
+        <EditText
+                android:id="@+id/name_input"
+                android:layout_marginTop="30dp"
+                app:layout_constraintTop_toBottomOf="@+id/login_image"
+                style="@style/login_input"
+                android:inputType="textPersonName"
+                android:hint="Soldier name"
+                android:background="@drawable/login_input_bg"/>
 
-</android.support.constraint.ConstraintLayout>
+        <Button
+                android:id="@+id/start_date_btn"
+                app:layout_constraintTop_toBottomOf="@id/name_input"
+                style="@style/login_input"
+                android:text="Start date"/>
+
+        <Button
+                android:id="@+id/end_date_btn"
+                app:layout_constraintTop_toBottomOf="@id/start_date_btn"
+                style="@style/login_input"
+                android:text="End date"/>
+
+        <Button
+                android:id="@+id/login_btn"
+                app:layout_constraintTop_toBottomOf="@+id/end_date_btn"
+                style="@style/login_button"
+                android:text="Log In"/>
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
