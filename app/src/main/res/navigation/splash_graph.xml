@@ -15,10 +15,16 @@
                 app:exitAnim="@anim/slide_out_left"
                 app:popEnterAnim="@anim/slide_in_left"
                 app:popExitAnim="@anim/slide_out_right"/>
+        <action android:id="@+id/splashToMain"
+                app:destination="@id/mainActivity"
+                app:popUpTo="@+id/splash_graph"
+                app:popUpToInclusive="true"/>
     </fragment>
-    <fragment android:id="@+id/loginFragment" android:name="com.noble.activity.dembeliscoming.fragments.LoginFragment"
+    <fragment android:id="@+id/loginFragment"
+              android:name="com.noble.activity.dembeliscoming.fragments.LoginFragment"
               android:label="LoginFragment">
-        <action android:id="@+id/action_loginFragment_to_mainActivity2" app:destination="@id/mainActivity"
+        <action android:id="@+id/action_loginFragment_to_mainActivity2"
+                app:destination="@id/mainActivity"
                 app:enterAnim="@anim/slide_in_right" app:exitAnim="@anim/slide_out_left"
                 app:popEnterAnim="@anim/slide_in_left" app:popExitAnim="@anim/slide_out_right"
                 app:launchSingleTop="true" app:popUpTo="@+id/splash_graph" app:popUpToInclusive="true"/>

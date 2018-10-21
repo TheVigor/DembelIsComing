@@ -13,6 +13,8 @@ import androidx.navigation.Navigation.findNavController
 import com.noble.activity.dembeliscoming.R
 import com.noble.activity.dembeliscoming.soldierPrefs
 import kotlinx.android.synthetic.main.fragment_splash.*
+import android.content.Intent
+import com.noble.activity.dembeliscoming.activities.MainActivity
 
 
 class SplashFragment: Fragment() {
@@ -40,7 +42,14 @@ class SplashFragment: Fragment() {
 
             override fun onAnimationEnd(p0: Animation?) {
                 if (soldierPrefs.isSoldierLoggedIn()) {
-                    findNavController(splash_logo).navigate(R.id.mainActivity)
+
+//                    val intent = Intent(context, MainActivity::class.java)
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+//                            or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+//                    startActivity(intent)
+
+                    findNavController(splash_logo).navigate(R.id.splashToMain)
+                    activity?.finish()
                 } else {
                     findNavController(splash_logo).navigate(R.id.splashToLogin)
                 }
