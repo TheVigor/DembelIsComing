@@ -1,10 +1,11 @@
-package com.noble.activity.dembeliscoming
+package com.noble.activity.dembeliscoming.fragments.main
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.noble.activity.dembeliscoming.R
 
 /**
  * A simple [Fragment] subclass.

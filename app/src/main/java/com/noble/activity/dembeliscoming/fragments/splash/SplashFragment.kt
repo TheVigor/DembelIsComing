@@ -1,7 +1,5 @@
-package com.noble.activity.dembeliscoming.fragments
+package com.noble.activity.dembeliscoming.fragments.splash
 
-import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -13,8 +11,6 @@ import androidx.navigation.Navigation.findNavController
 import com.noble.activity.dembeliscoming.R
 import com.noble.activity.dembeliscoming.soldierPrefs
 import kotlinx.android.synthetic.main.fragment_splash.*
-import android.content.Intent
-import com.noble.activity.dembeliscoming.activities.MainActivity
 
 
 class SplashFragment: Fragment() {

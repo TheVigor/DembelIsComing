@@ -1,4 +1,4 @@
-package com.noble.activity.dembeliscoming.activities
+package com.noble.activity.dembeliscoming.activities.splash
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

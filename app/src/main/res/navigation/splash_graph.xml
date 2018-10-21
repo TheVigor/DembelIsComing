@@ -5,7 +5,7 @@
 
 
     <fragment android:id="@+id/splashFragment"
-              android:name="com.noble.activity.dembeliscoming.fragments.SplashFragment"
+              android:name="com.noble.activity.dembeliscoming.fragments.splash.SplashFragment"
               android:label="SplashFragment">
         <action app:destination="@id/loginFragment"
                 app:popUpTo="@+id/splash_graph"
@@ -21,7 +21,7 @@
                 app:popUpToInclusive="true"/>
     </fragment>
     <fragment android:id="@+id/loginFragment"
-              android:name="com.noble.activity.dembeliscoming.fragments.LoginFragment"
+              android:name="com.noble.activity.dembeliscoming.fragments.splash.LoginFragment"
               android:label="LoginFragment">
         <action android:id="@+id/action_loginFragment_to_mainActivity2"
                 app:destination="@id/mainActivity"
@@ -29,6 +29,6 @@
                 app:popEnterAnim="@anim/slide_in_left" app:popExitAnim="@anim/slide_out_right"
                 app:launchSingleTop="true" app:popUpTo="@+id/splash_graph" app:popUpToInclusive="true"/>
     </fragment>
-    <activity android:id="@+id/mainActivity" android:name="com.noble.activity.dembeliscoming.activities.MainActivity"
+    <activity android:id="@+id/mainActivity" android:name="com.noble.activity.dembeliscoming.activities.main.MainActivity"
               android:label="activity_main" tools:layout="@layout/activity_main"/>
 </navigation>

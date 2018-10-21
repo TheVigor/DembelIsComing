@@ -1,16 +1,11 @@
-package com.noble.activity.dembeliscoming.fragments
+package com.noble.activity.dembeliscoming.fragments.splash
 
 import android.app.DatePickerDialog
-import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.DatePicker
-import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
 
 import com.noble.activity.dembeliscoming.R
@@ -18,9 +13,6 @@ import com.noble.activity.dembeliscoming.soldierPrefs
 import com.noble.activity.dembeliscoming.updateDate
 import com.noble.activity.dembeliscoming.validateNewSoldier
 import kotlinx.android.synthetic.main.fragment_login.*
-import java.text.SimpleDateFormat
-import java.time.Month
-import java.time.Year
 import java.util.*
 
 class LoginFragment : Fragment() {

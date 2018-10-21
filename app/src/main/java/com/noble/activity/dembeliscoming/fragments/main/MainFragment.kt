@@ -1,11 +1,11 @@
-package com.noble.activity.dembeliscoming
+package com.noble.activity.dembeliscoming.fragments.main
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.*
 import androidx.navigation.NavOptions
-import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
+import com.noble.activity.dembeliscoming.R
 import kotlinx.android.synthetic.main.main_fragment.*
 
 /**

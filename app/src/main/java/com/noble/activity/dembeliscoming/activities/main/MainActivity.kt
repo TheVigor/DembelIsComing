@@ -1,4 +1,4 @@
-package com.noble.activity.dembeliscoming.activities
+package com.noble.activity.dembeliscoming.activities.main
 
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
