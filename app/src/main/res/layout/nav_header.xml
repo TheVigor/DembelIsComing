@@ -30,7 +30,7 @@
         android:layout_width="@dimen/navigation_drawer_image_width"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@drawable/ic_launcher_background"
+        android:src="@drawable/gasmask"
         android:contentDescription="Dembel is coming" />
 
     <TextView
