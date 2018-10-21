@@ -14,9 +14,18 @@
                 app:exitAnim="@anim/slide_out_left"
                 app:popEnterAnim="@anim/slide_in_right"
                 app:popExitAnim="@anim/slide_out_right"/>
+        <action android:id="@+id/action_mainFragment_to_documentsFragment" app:destination="@id/documentsFragment"/>
+        <action android:id="@+id/action_mainFragment_to_backgroundPhotoFragment"
+                app:destination="@id/backgroundPhotoFragment"/>
     </fragment>
     <fragment android:id="@+id/settingsFragment"
               android:name="com.noble.activity.dembeliscoming.fragments.main.SettingsFragment"
               android:label="settings"
               tools:layout="@layout/fragment_settings"/>
+    <fragment android:id="@+id/documentsFragment"
+              android:name="com.noble.activity.dembeliscoming.fragments.main.DocumentsFragment"
+              android:label="DocumentsFragment"/>
+    <fragment android:id="@+id/backgroundPhotoFragment"
+              android:name="com.noble.activity.dembeliscoming.fragments.main.BackgroundPhotoFragment"
+              android:label="BackgroundPhotoFragment"/>
 </navigation>

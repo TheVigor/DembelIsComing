@@ -8,17 +8,51 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
+                  <entry key="backgroundPhotoFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="142" />
+                            <option name="y" value="-237" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="documentsFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="139" />
+                            <option name="y" value="-625" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="mainFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-409" />
-                            <option name="y" value="-33" />
+                            <option name="x" value="-400" />
+                            <option name="y" value="-234" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_mainFragment_to_backgroundPhotoFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_mainFragment_to_documentsFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_mainFragment_to_settingsFragment2">
                               <value>
                                 <LayoutPositions />
@@ -34,8 +68,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="319" />
-                            <option name="y" value="-267" />
+                            <option name="x" value="139" />
+                            <option name="y" value="148" />
                           </Point>
                         </option>
                       </LayoutPositions>
