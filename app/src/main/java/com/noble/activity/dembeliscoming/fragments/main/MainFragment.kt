@@ -36,14 +36,6 @@ class MainFragment : Fragment() {
             .setPopExitAnim(R.anim.slide_out_right)
             .build()
 
-        navigate_dest_bt.setOnClickListener {
-            findNavController(it).navigate(R.id.settingsFragment, null, options)
-        }
-
-        navigate_action_bt.setOnClickListener {
-            findNavController(it).navigate(R.id.action_mainFragment_to_settingsFragment2)
-        }
-
         timer.scheduleAtFixedRate(object: TimerTask(){
             override fun run() {
                 activity?.runOnUiThread {
@@ -58,7 +50,7 @@ class MainFragment : Fragment() {
                     }
 
                     percentText?.text = percentage(currentDate)
-                    
+
                     val diffTimeFromStart = getDiffTime(soldierPrefs.startDate, currentDate)
                     diffTimeFromStartText?.text = diffTimeFromStart.stringify()
 
