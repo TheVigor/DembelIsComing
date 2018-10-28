@@ -4,10 +4,18 @@ import android.content.Context
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import com.noble.activity.dembeliscoming.models.DiffTime
 import java.text.SimpleDateFormat
 import java.util.*
 
+
 val DATE_FORMAT = "dd/MM/yyyy"
+
+val secondsInMilli: Long = 1000L
+val minutesInMilli = secondsInMilli * 60L
+val hoursInMilli = minutesInMilli * 60L
+val daysInMilli = hoursInMilli * 24L
+
 
 fun updateDate(view: View, mDay: Int, mMonth: Int, mYear: Int, isStartDate: Boolean) {
 
@@ -15,6 +23,11 @@ fun updateDate(view: View, mDay: Int, mMonth: Int, mYear: Int, isStartDate: Bool
     cal.set(Calendar.YEAR, mYear)
     cal.set(Calendar.MONTH, mMonth)
     cal.set(Calendar.DAY_OF_MONTH, mDay)
+
+    cal.set(Calendar.HOUR_OF_DAY, 0)
+    cal.set(Calendar.MINUTE, 0)
+    cal.set(Calendar.SECOND, 0)
+    cal.set(Calendar.MILLISECOND, 0)
 
     val sdf = SimpleDateFormat(DATE_FORMAT, Locale.US)
 
@@ -57,4 +70,22 @@ fun validateNewSoldier(context: Context): Boolean {
     }
 
     return true
+}
+
+fun getDiffTime(startDate: Long, endDate: Long) : DiffTime {
+
+    var different = endDate - startDate
+
+    val elapsedDays = different / daysInMilli
+    different = different % daysInMilli
+
+    val elapsedHours = different / hoursInMilli
+    different = different % hoursInMilli
+
+    val elapsedMinutes = different / minutesInMilli
+    different = different % minutesInMilli
+
+    val elapsedSeconds = different / secondsInMilli
+
+    return DiffTime(elapsedDays, elapsedHours, elapsedMinutes, elapsedSeconds)
 }

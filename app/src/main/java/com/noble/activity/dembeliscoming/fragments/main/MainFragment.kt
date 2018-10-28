@@ -1,15 +1,15 @@
 package com.noble.activity.dembeliscoming.fragments.main
 
 import android.os.Bundle
-import android.os.Handler
 import android.support.v4.app.Fragment
 import android.view.*
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigation.findNavController
 import com.noble.activity.dembeliscoming.R
+import com.noble.activity.dembeliscoming.getDiffTime
 import com.noble.activity.dembeliscoming.showToast
+import com.noble.activity.dembeliscoming.soldierPrefs
 import kotlinx.android.synthetic.main.main_fragment.*
-import java.text.SimpleDateFormat
 import java.util.*
 
 /**
@@ -49,13 +49,29 @@ class MainFragment : Fragment() {
         timer.scheduleAtFixedRate(object: TimerTask(){
             override fun run() {
                 activity?.runOnUiThread {
-                    val sdf = SimpleDateFormat("yyyyMMdd_HHmmss")
-                    val currentDateandTime = sdf.format(Date())
-                    text?.text = currentDateandTime
+                    val cal = Date()
+                    val currentDate = cal.time
+
+                    if (currentDate < soldierPrefs.startDate) {
+                        activity?.showToast("Not started yet")
+                    }
+
+                    if (currentDate > soldierPrefs.endDate) {
+                        activity?.showToast("Yahooo. Dembel was already")
+                    }
+
+                    val diffTimeFromStart = getDiffTime(soldierPrefs.startDate, currentDate)
+                    diffTimeFromStartText?.text = "${diffTimeFromStart.days} ${diffTimeFromStart.hours} " +
+                            "${diffTimeFromStart.minutes} ${diffTimeFromStart.seconds}"
+
+
+                    val diffTimeToDembel = getDiffTime(currentDate, soldierPrefs.endDate)
+                    diffTimeToDembelText?.text = "${diffTimeToDembel.days} ${diffTimeToDembel.hours} " +
+                            "${diffTimeToDembel.minutes} ${diffTimeToDembel.seconds}"
                 }
             }
         }, updateDelay, updateInerval)
 
     }
-    
+
 }
