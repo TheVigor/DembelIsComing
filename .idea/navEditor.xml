@@ -88,12 +88,6 @@
                   <entry key="loginFragment">
                     <value>
                       <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="393" />
-                            <option name="y" value="-247" />
-                          </Point>
-                        </option>
                         <option name="myPositions">
                           <map>
                             <entry key="action_loginFragment_to_mainActivity2">
@@ -108,33 +102,20 @@
                   </entry>
                   <entry key="mainActivity">
                     <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="685" />
-                            <option name="y" value="190" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
+                      <LayoutPositions />
                     </value>
                   </entry>
                   <entry key="splashFragment">
                     <value>
                       <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="-28" />
-                            <option name="y" value="141" />
-                          </Point>
-                        </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_splashFragment_to_mainActivity">
+                            <entry key="splashToLogin">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="splashToLogin">
+                            <entry key="splashToMain">
                               <value>
                                 <LayoutPositions />
                               </value>

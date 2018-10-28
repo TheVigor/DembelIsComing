@@ -15,7 +15,8 @@
             android:layout_marginTop="8dp"
             android:text="Home"
             android:textAlignment="center"
-            android:textSize="52sp"
+
+            android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/navigate_dest_bt"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
