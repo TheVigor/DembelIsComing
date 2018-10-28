@@ -89,3 +89,13 @@ fun getDiffTime(startDate: Long, endDate: Long) : DiffTime {
 
     return DiffTime(elapsedDays, elapsedHours, elapsedMinutes, elapsedSeconds)
 }
+
+fun percentage(currentDate: Long): String {
+    val passed = (currentDate - soldierPrefs.startDate).toDouble()
+    val all = (soldierPrefs.endDate - soldierPrefs.startDate).toDouble() 
+
+    val percentTime = "%.6f".format((passed / all) * 100)
+    
+    return "$percentTime%"
+}
+

@@ -5,10 +5,8 @@ import android.support.v4.app.Fragment
 import android.view.*
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigation.findNavController
-import com.noble.activity.dembeliscoming.R
-import com.noble.activity.dembeliscoming.getDiffTime
-import com.noble.activity.dembeliscoming.showToast
-import com.noble.activity.dembeliscoming.soldierPrefs
+import com.noble.activity.dembeliscoming.*
+import com.noble.activity.dembeliscoming.models.stringify
 import kotlinx.android.synthetic.main.main_fragment.*
 import java.util.*
 
@@ -49,8 +47,7 @@ class MainFragment : Fragment() {
         timer.scheduleAtFixedRate(object: TimerTask(){
             override fun run() {
                 activity?.runOnUiThread {
-                    val cal = Date()
-                    val currentDate = cal.time
+                    val currentDate = Date().time
 
                     if (currentDate < soldierPrefs.startDate) {
                         activity?.showToast("Not started yet")
@@ -60,14 +57,13 @@ class MainFragment : Fragment() {
                         activity?.showToast("Yahooo. Dembel was already")
                     }
 
+                    percentText?.text = percentage(currentDate)
+                    
                     val diffTimeFromStart = getDiffTime(soldierPrefs.startDate, currentDate)
-                    diffTimeFromStartText?.text = "${diffTimeFromStart.days} ${diffTimeFromStart.hours} " +
-                            "${diffTimeFromStart.minutes} ${diffTimeFromStart.seconds}"
-
+                    diffTimeFromStartText?.text = diffTimeFromStart.stringify()
 
                     val diffTimeToDembel = getDiffTime(currentDate, soldierPrefs.endDate)
-                    diffTimeToDembelText?.text = "${diffTimeToDembel.days} ${diffTimeToDembel.hours} " +
-                            "${diffTimeToDembel.minutes} ${diffTimeToDembel.seconds}"
+                    diffTimeToDembelText?.text = diffTimeToDembel.stringify()
                 }
             }
         }, updateDelay, updateInerval)
