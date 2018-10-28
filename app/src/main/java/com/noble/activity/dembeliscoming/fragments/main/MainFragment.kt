@@ -8,6 +8,7 @@ import androidx.navigation.Navigation.findNavController
 import com.noble.activity.dembeliscoming.*
 import com.noble.activity.dembeliscoming.models.stringify
 import kotlinx.android.synthetic.main.main_fragment.*
+import kotlinx.android.synthetic.main.timer_main.view.*
 import java.util.*
 
 /**
@@ -56,6 +57,8 @@ class MainFragment : Fragment() {
 
                     val diffTimeToDembel = getDiffTime(currentDate, soldierPrefs.endDate)
                     diffTimeToDembelText?.text = diffTimeToDembel.stringify()
+
+                    passedDembelTimer?.title?.text = percentage(currentDate)
                 }
             }
         }, updateDelay, updateInerval)
