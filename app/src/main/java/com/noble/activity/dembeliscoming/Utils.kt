@@ -1,11 +1,22 @@
 package com.noble.activity.dembeliscoming
 
 import android.content.Context
+import android.graphics.Color
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import com.github.mikephil.charting.animation.Easing
+import com.github.mikephil.charting.charts.PieChart
+import com.github.mikephil.charting.components.Legend
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.formatter.PercentFormatter
+import com.github.mikephil.charting.utils.ColorTemplate
+import com.github.mikephil.charting.utils.MPPointF
 import com.noble.activity.dembeliscoming.models.DiffTime
 import com.noble.activity.dembeliscoming.ui.DembelTimerView
+import kotlinx.android.synthetic.main.main_fragment.*
 import kotlinx.android.synthetic.main.timer_main.view.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -94,20 +105,17 @@ fun getDiffTime(startDate: Long, endDate: Long) : DiffTime {
 
 fun percentagePassed(currentDate: Long): String {
     val passed = (currentDate - soldierPrefs.startDate).toDouble()
-    val all = (soldierPrefs.endDate - soldierPrefs.startDate).toDouble() 
+    val all = (soldierPrefs.endDate - soldierPrefs.startDate).toDouble()
 
-    val percentTime = "%.6f".format((passed / all) * 100)
-    
-    return "$percentTime%"
+    return "%.6f".format((passed / all) * 100)
+
 }
 
 fun percentageLeft(currentDate: Long): String {
     val left = (soldierPrefs.endDate - currentDate).toDouble()
     val all = (soldierPrefs.endDate - soldierPrefs.startDate).toDouble()
 
-    val percentTime = "%.6f".format((left / all) * 100)
-
-    return "$percentTime%"
+    return "%.6f".format((left / all) * 100)
 }
 
 fun DembelTimerView.updateCounter(time: DiffTime) {
@@ -118,10 +126,86 @@ fun DembelTimerView.updateCounter(time: DiffTime) {
 }
 
 fun DembelTimerView.updatePassedPercentage(currentDate: Long) {
-    this.percentage_text?.text = percentagePassed(currentDate)
+    this.percentage_text?.text = "${percentagePassed(currentDate)}%"
 }
 
 fun DembelTimerView.updateLeftPercentage(currentDate: Long) {
-    this.percentage_text?.text = percentageLeft(currentDate)
+    this.percentage_text?.text = "${percentageLeft(currentDate)}%"
+}
+
+fun PieChart.init() {
+    this.setUsePercentValues(true)
+    this.description.isEnabled = false
+    this.setExtraOffsets(5f, 10f, 5f, 5f)
+
+    this.dragDecelerationFrictionCoef = 0.95f
+
+    this.centerText = "Military"
+
+    this.isDrawHoleEnabled = true
+    this.setHoleColor(Color.WHITE)
+
+    this.setTransparentCircleColor(Color.WHITE)
+    this.setTransparentCircleAlpha(110)
+
+    this.holeRadius = 58f
+    this.transparentCircleRadius = 61f
+
+    this.setDrawCenterText(true)
+
+    this.rotationAngle = 0f
+    // enable rotation of the this by touch
+    this.isRotationEnabled = true
+    this.isHighlightPerTapEnabled = true
+
+    this.animateY(1400, Easing.EaseInOutQuad)
+
+    val l = this.legend
+
+    l.verticalAlignment = Legend.LegendVerticalAlignment.TOP
+    l.horizontalAlignment = Legend.LegendHorizontalAlignment.RIGHT
+    l.orientation = Legend.LegendOrientation.VERTICAL
+
+    l.setDrawInside(false)
+
+    l.xEntrySpace = 7f
+    l.yEntrySpace = 0f
+    l.yOffset = 0f
+    l.xOffset = 10f
+
+    // entry label styling
+    this.setEntryLabelColor(Color.WHITE)
+    //this.setEntryLabelTypeface(tfRegular)
+    this.setEntryLabelTextSize(12f)
+}
+
+fun PieChart.updateData(passedPercent: Float, leftPercent: Float) {
+    val entries = arrayListOf<PieEntry>()
+
+    entries.add(PieEntry(passedPercent, "Passed", resources.getDrawable(R.drawable.happy_soldier)))
+    entries.add(PieEntry(leftPercent, "Left", resources.getDrawable(R.drawable.sad_soldier)))
+
+    val dataSet = PieDataSet(entries, "Military")
+    dataSet.setDrawIcons(false)
+
+    dataSet.sliceSpace = 3f
+    dataSet.iconsOffset = MPPointF(0f, 40f)
+    dataSet.selectionShift = 5f
+
+    val colors = arrayListOf<Int>()
+    colors.add(ColorTemplate.rgb("#008577"))
+    colors.add(ColorTemplate.rgb("#f44336"))
+
+    dataSet.setColors(colors)
+
+    val data = PieData(dataSet)
+    data.setValueFormatter(PercentFormatter())
+    data.setValueTextSize(11f)
+    data.setValueTextColor(Color.WHITE)
+    //data.setValueTypeface(tfLight)
+
+    this.data = data
+    this.highlightValues(null)
+    this.invalidate()
 }
 

@@ -9,6 +9,20 @@ import com.noble.activity.dembeliscoming.models.stringify
 import kotlinx.android.synthetic.main.main_fragment.*
 import kotlinx.android.synthetic.main.timer_main.view.*
 import java.util.*
+import com.github.mikephil.charting.components.Legend
+import com.github.mikephil.charting.animation.Easing
+import android.databinding.adapters.SeekBarBindingAdapter.setProgress
+import android.graphics.Color
+import com.noble.activity.dembeliscoming.R.id.chart
+import com.github.mikephil.charting.formatter.PercentFormatter
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.utils.ColorTemplate
+import com.github.mikephil.charting.utils.MPPointF
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
+
+
+
 
 /**
  * Fragment used to show how to navigate to another destination
@@ -28,6 +42,8 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        chart?.init()
 
         passedDembelTimer?.title_text?.text = "Passed"
         passedDembelTimer?.timer_icon?.setImageResource(R.drawable.happy_soldier)
@@ -63,6 +79,9 @@ class MainFragment : Fragment() {
 
                     leftDembelTimer?.updateCounter(diffTimeToDembel)
                     leftDembelTimer?.updateLeftPercentage(currentDate)
+
+                    chart?.updateData(percentagePassed(currentDate).replace(',', '.').toFloat(),
+                        percentageLeft(currentDate).replace(',', '.').toFloat())
 
                 }
             }
