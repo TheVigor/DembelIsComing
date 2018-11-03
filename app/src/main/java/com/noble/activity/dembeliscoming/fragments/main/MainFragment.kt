@@ -58,7 +58,7 @@ class MainFragment : Fragment() {
                     val diffTimeToDembel = getDiffTime(currentDate, soldierPrefs.endDate)
                     diffTimeToDembelText?.text = diffTimeToDembel.stringify()
 
-                    passedDembelTimer?.title?.text = percentage(currentDate)
+                    passedDembelTimer?.percentage_text?.text = percentage(currentDate)
                 }
             }
         }, updateDelay, updateInerval)

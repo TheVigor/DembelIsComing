@@ -3,27 +3,62 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/percentage_bg">
 
-    <ImageView
-            android:id="@+id/icon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/gasmask"
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/timer_icon"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            app:civ_border_color="@color/grey"
+            app:civ_border_width="1dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/title"
-            android:layout_marginStart="50dp"
-            android:padding="10dp"/>
+            app:layout_constraintEnd_toStartOf="@id/percentage_text"
+            app:layout_constraintHorizontal_weight="2"
+            android:src="@drawable/gasmask"/>
 
     <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="LOL"
-            app:layout_constraintStart_toEndOf="@id/icon"
+            android:id="@+id/days_count_text"
+            style="@style/timer_text_count"
+            android:text="50"
+            app:layout_constraintVertical_bias="0.3"
+            app:layout_constraintStart_toStartOf="@id/days_text"
+            app:layout_constraintEnd_toEndOf="@id/days_text"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintBottom_toTopOf="@id/percentage_text"/>
+
+    <TextView
+            android:id="@+id/days_text"
+            style="@style/timer_text"
+            android:text="days"
+            app:layout_constraintTop_toBottomOf="@id/days_count_text"
+            app:layout_constraintStart_toStartOf="@id/percentage_text" />
+
+
+    <TextView
+            android:id="@+id/percentage_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="15dp"
+            android:text="0%"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="@+id/timer_icon"
+            app:layout_constraintStart_toEndOf="@id/timer_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="4"/>
+
+
 
 
 </android.support.constraint.ConstraintLayout>

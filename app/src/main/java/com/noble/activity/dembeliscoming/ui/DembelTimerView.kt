@@ -17,6 +17,6 @@ class DembelTimerView @JvmOverloads constructor(
         LayoutInflater.from(context)
             .inflate(R.layout.timer_main, this, true)
 
-        background = ContextCompat.getDrawable(context, R.drawable.timer_view_background)
+        //background = ContextCompat.getDrawable(context, R.drawable.timer_view_background)
     }
 }
