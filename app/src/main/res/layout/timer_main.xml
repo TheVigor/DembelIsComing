@@ -35,9 +35,63 @@
     <TextView
             android:id="@+id/days_text"
             style="@style/timer_text"
-            android:text="days"
+            android:text="d"
             app:layout_constraintTop_toBottomOf="@id/days_count_text"
-            app:layout_constraintStart_toStartOf="@id/percentage_text" />
+            app:layout_constraintStart_toStartOf="@id/percentage_text"
+            app:layout_constraintEnd_toStartOf="@id/hours_text"/>
+
+    <TextView
+            android:id="@+id/hours_count_text"
+            style="@style/timer_text_count"
+            android:text="100"
+            app:layout_constraintStart_toStartOf="@id/hours_text"
+            app:layout_constraintEnd_toEndOf="@id/hours_text"
+            app:layout_constraintBaseline_toBaselineOf="@+id/days_count_text" />
+
+    <TextView
+            android:id="@+id/hours_text"
+            style="@style/timer_text"
+            android:text="h"
+            app:layout_constraintBaseline_toBaselineOf="@+id/days_text"
+            app:layout_constraintStart_toEndOf="@id/days_text"
+            app:layout_constraintEnd_toStartOf="@id/minutes_text"/>
+
+    <TextView
+            android:id="@+id/minutes_count_text"
+            style="@style/timer_text_count"
+            android:text="200"
+            app:layout_constraintStart_toStartOf="@id/minutes_text"
+            app:layout_constraintEnd_toEndOf="@id/minutes_text"
+            app:layout_constraintBaseline_toBaselineOf="@+id/days_count_text" />
+
+    <TextView
+            android:id="@+id/minutes_text"
+            style="@style/timer_text"
+            android:text="m"
+            app:layout_constraintBaseline_toBaselineOf="@+id/days_text"
+            app:layout_constraintStart_toEndOf="@id/hours_text"
+            app:layout_constraintEnd_toStartOf="@id/seconds_text" />
+
+    <TextView
+            android:id="@+id/seconds_count_text"
+            style="@style/timer_text_count"
+            android:text="66"
+            app:layout_constraintStart_toStartOf="@id/seconds_text"
+            app:layout_constraintEnd_toEndOf="@id/seconds_text"
+            app:layout_constraintBaseline_toBaselineOf="@+id/days_count_text" />
+
+    <TextView
+            android:id="@+id/seconds_text"
+            style="@style/timer_text"
+            android:text="s"
+            app:layout_constraintBaseline_toBaselineOf="@+id/days_text"
+            app:layout_constraintStart_toEndOf="@id/minutes_text"
+            app:layout_constraintEnd_toEndOf="@id/percentage_text" />
+
+
+
+
+
 
 
     <TextView

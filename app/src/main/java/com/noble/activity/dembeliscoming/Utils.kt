@@ -5,6 +5,9 @@ import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import com.noble.activity.dembeliscoming.models.DiffTime
+import com.noble.activity.dembeliscoming.ui.DembelTimerView
+import kotlinx.android.synthetic.main.main_fragment.*
+import kotlinx.android.synthetic.main.timer_main.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -99,3 +102,11 @@ fun percentage(currentDate: Long): String {
     return "$percentTime%"
 }
 
+fun DembelTimerView.updateCounter(time: DiffTime, currentDate: Long) {
+    this.days_count_text?.text  = time.days.toString()
+    this.hours_count_text?.text = time.hours.toString()
+    this.minutes_count_text?.text = time.minutes.toString()
+    this.seconds_count_text?.text = time.seconds.toString()
+
+    this.percentage_text?.text = percentage(currentDate)
+}
