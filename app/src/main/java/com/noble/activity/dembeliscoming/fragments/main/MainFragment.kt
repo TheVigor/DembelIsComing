@@ -57,7 +57,7 @@ class MainFragment : Fragment() {
 
                     val diffTimeToDembel = getDiffTime(currentDate, soldierPrefs.endDate)
                     diffTimeToDembelText?.text = diffTimeToDembel.stringify()
-                    
+
                     passedDembelTimer?.updateCounter(diffTimeFromStart, currentDate)
 
 
