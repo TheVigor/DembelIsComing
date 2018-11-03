@@ -6,7 +6,6 @@ import android.widget.Button
 import android.widget.Toast
 import com.noble.activity.dembeliscoming.models.DiffTime
 import com.noble.activity.dembeliscoming.ui.DembelTimerView
-import kotlinx.android.synthetic.main.main_fragment.*
 import kotlinx.android.synthetic.main.timer_main.view.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -93,7 +92,7 @@ fun getDiffTime(startDate: Long, endDate: Long) : DiffTime {
     return DiffTime(elapsedDays, elapsedHours, elapsedMinutes, elapsedSeconds)
 }
 
-fun percentage(currentDate: Long): String {
+fun percentagePassed(currentDate: Long): String {
     val passed = (currentDate - soldierPrefs.startDate).toDouble()
     val all = (soldierPrefs.endDate - soldierPrefs.startDate).toDouble() 
 
@@ -102,11 +101,27 @@ fun percentage(currentDate: Long): String {
     return "$percentTime%"
 }
 
-fun DembelTimerView.updateCounter(time: DiffTime, currentDate: Long) {
+fun percentageLeft(currentDate: Long): String {
+    val left = (soldierPrefs.endDate - currentDate).toDouble()
+    val all = (soldierPrefs.endDate - soldierPrefs.startDate).toDouble()
+
+    val percentTime = "%.6f".format((left / all) * 100)
+
+    return "$percentTime%"
+}
+
+fun DembelTimerView.updateCounter(time: DiffTime) {
     this.days_count_text?.text  = time.days.toString()
     this.hours_count_text?.text = time.hours.toString()
     this.minutes_count_text?.text = time.minutes.toString()
     this.seconds_count_text?.text = time.seconds.toString()
-
-    this.percentage_text?.text = percentage(currentDate)
 }
+
+fun DembelTimerView.updatePassedPercentage(currentDate: Long) {
+    this.percentage_text?.text = percentagePassed(currentDate)
+}
+
+fun DembelTimerView.updateLeftPercentage(currentDate: Long) {
+    this.percentage_text?.text = percentageLeft(currentDate)
+}
+

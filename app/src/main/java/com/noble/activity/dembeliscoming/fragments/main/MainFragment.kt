@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.*
 import androidx.navigation.NavOptions
-import androidx.navigation.Navigation.findNavController
 import com.noble.activity.dembeliscoming.*
 import com.noble.activity.dembeliscoming.models.stringify
 import kotlinx.android.synthetic.main.main_fragment.*
@@ -30,6 +29,12 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        passedDembelTimer?.title_text?.text = "Passed"
+        passedDembelTimer?.timer_icon?.setImageResource(R.drawable.happy_soldier)
+
+        leftDembelTimer?.title_text?.text = "Left"
+        leftDembelTimer?.timer_icon?.setImageResource(R.drawable.sad_soldier)
+
         val options = NavOptions.Builder()
             .setEnterAnim(R.anim.slide_in_right)
             .setExitAnim(R.anim.slide_out_left)
@@ -50,16 +55,14 @@ class MainFragment : Fragment() {
                         activity?.showToast("Yahooo. Dembel was already")
                     }
 
-                    percentText?.text = percentage(currentDate)
-
                     val diffTimeFromStart = getDiffTime(soldierPrefs.startDate, currentDate)
-                    diffTimeFromStartText?.text = diffTimeFromStart.stringify()
-
                     val diffTimeToDembel = getDiffTime(currentDate, soldierPrefs.endDate)
-                    diffTimeToDembelText?.text = diffTimeToDembel.stringify()
 
-                    passedDembelTimer?.updateCounter(diffTimeFromStart, currentDate)
+                    passedDembelTimer?.updateCounter(diffTimeFromStart)
+                    passedDembelTimer?.updatePassedPercentage(currentDate)
 
+                    leftDembelTimer?.updateCounter(diffTimeToDembel)
+                    leftDembelTimer?.updateLeftPercentage(currentDate)
 
                 }
             }
