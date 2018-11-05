@@ -1,6 +1,7 @@
 package com.noble.activity.dembeliscoming
 
 import android.app.Application
+import com.noble.activity.dembeliscoming.storage.SoldierPrefs
 
 val soldierPrefs: SoldierPrefs by lazy {
     App.soldierPrefs!!

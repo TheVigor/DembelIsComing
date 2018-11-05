@@ -1,4 +1,4 @@
-package com.noble.activity.dembeliscoming
+package com.noble.activity.dembeliscoming.storage
 
 import android.content.Context
 import android.content.SharedPreferences
