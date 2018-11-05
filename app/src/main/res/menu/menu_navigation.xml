@@ -1,24 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <group android:id="@+id/main_group" android:checkableBehavior="single" >
+    <group android:checkableBehavior="single">
         <item
-            android:id="@+id/mainFragment"
-            android:title="Timer"/>
+            android:title="ACTIONS">
+            <menu>
+                <group android:id="@+id/main_group"
+                       android:checkableBehavior="single" >
+                    <item
+                        android:id="@+id/mainFragment"
+                        android:title="Timer"
+                        android:icon="@mipmap/timer_icon"/>
+
+                </group>
+            </menu>
+        </item>
 
         <item
-                android:id="@+id/drillDocFragment"
-                android:title="Documents"/>
+            android:title="DOCUMENTS">
+            <menu>
+                <group android:id="@+id/documents_group"
+                       android:checkableBehavior="single">
+                    <item
+                            android:id="@+id/backgroundPhotoFragment"
+                            android:title="Change background image"
+                            android:icon="@mipmap/background_img_icon"/>
+
+                    <item
+                            android:id="@+id/drillDocFragment"
+                            android:title="Documents"
+                            android:icon="@mipmap/drill_document_icon"/>
+                </group>
+            </menu>
+        </item>
+
+        <item
+            android:title="OTHER">
+            <menu>
+                <group android:id="@+id/other_group"
+                       android:checkableBehavior="single">
+                    <item
+                            android:id="@+id/settingsFragment"
+                            android:title="Change profile"
+                            android:icon="@mipmap/profile_icon"/>
+                </group>
+            </menu>
+        </item>
     </group>
-
-    <group android:id="@+id/settings_group" android:checkableBehavior="single" >
-        <item
-                android:id="@+id/backgroundPhotoFragment"
-                android:title="Change background image"/>
-        <item
-            android:id="@+id/settingsFragment"
-            android:title="Change data"/>
-    </group>
-
-
 </menu>
