@@ -1,4 +1,4 @@
-package com.noble.activity.dembeliscoming
+package com.noble.activity.dembeliscoming.utilities
 
 import android.content.Context
 import android.graphics.Color
@@ -14,9 +14,10 @@ import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.github.mikephil.charting.utils.MPPointF
+import com.noble.activity.dembeliscoming.R
 import com.noble.activity.dembeliscoming.models.DiffTime
+import com.noble.activity.dembeliscoming.soldierPrefs
 import com.noble.activity.dembeliscoming.ui.DembelTimerView
-import kotlinx.android.synthetic.main.main_fragment.*
 import kotlinx.android.synthetic.main.timer_main.view.*
 import java.text.SimpleDateFormat
 import java.util.*

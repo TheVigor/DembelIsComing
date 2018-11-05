@@ -10,8 +10,8 @@ import androidx.navigation.Navigation.findNavController
 
 import com.noble.activity.dembeliscoming.R
 import com.noble.activity.dembeliscoming.soldierPrefs
-import com.noble.activity.dembeliscoming.updateDate
-import com.noble.activity.dembeliscoming.validateNewSoldier
+import com.noble.activity.dembeliscoming.utilities.updateDate
+import com.noble.activity.dembeliscoming.utilities.validateNewSoldier
 import kotlinx.android.synthetic.main.fragment_login.*
 import java.util.*
 

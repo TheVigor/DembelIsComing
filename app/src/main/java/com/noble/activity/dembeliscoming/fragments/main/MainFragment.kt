@@ -5,23 +5,10 @@ import android.support.v4.app.Fragment
 import android.view.*
 import androidx.navigation.NavOptions
 import com.noble.activity.dembeliscoming.*
-import com.noble.activity.dembeliscoming.models.stringify
 import kotlinx.android.synthetic.main.main_fragment.*
 import kotlinx.android.synthetic.main.timer_main.view.*
 import java.util.*
-import com.github.mikephil.charting.components.Legend
-import com.github.mikephil.charting.animation.Easing
-import android.databinding.adapters.SeekBarBindingAdapter.setProgress
-import android.graphics.Color
-import com.noble.activity.dembeliscoming.R.id.chart
-import com.github.mikephil.charting.formatter.PercentFormatter
-import com.github.mikephil.charting.data.PieData
-import com.github.mikephil.charting.utils.ColorTemplate
-import com.github.mikephil.charting.utils.MPPointF
-import com.github.mikephil.charting.data.PieDataSet
-import com.github.mikephil.charting.data.PieEntry
-
-
+import com.noble.activity.dembeliscoming.utilities.*
 
 
 /**
@@ -71,8 +58,10 @@ class MainFragment : Fragment() {
                         activity?.showToast("Yahooo. Dembel was already")
                     }
 
-                    val diffTimeFromStart = getDiffTime(soldierPrefs.startDate, currentDate)
-                    val diffTimeToDembel = getDiffTime(currentDate, soldierPrefs.endDate)
+                    val diffTimeFromStart =
+                        getDiffTime(soldierPrefs.startDate, currentDate)
+                    val diffTimeToDembel =
+                        getDiffTime(currentDate, soldierPrefs.endDate)
 
                     passedDembelTimer?.updateCounter(diffTimeFromStart)
                     passedDembelTimer?.updatePassedPercentage(currentDate)
@@ -80,7 +69,8 @@ class MainFragment : Fragment() {
                     leftDembelTimer?.updateCounter(diffTimeToDembel)
                     leftDembelTimer?.updateLeftPercentage(currentDate)
 
-                    chart?.updateData(percentagePassed(currentDate).replace(',', '.').toFloat(),
+                    chart?.updateData(
+                        percentagePassed(currentDate).replace(',', '.').toFloat(),
                         percentageLeft(currentDate).replace(',', '.').toFloat())
 
                 }
