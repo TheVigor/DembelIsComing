@@ -7,7 +7,7 @@
             android:title="Timer"/>
 
         <item
-                android:id="@+id/documentsFragment"
+                android:id="@+id/drillDocFragment"
                 android:title="Documents"/>
     </group>
 

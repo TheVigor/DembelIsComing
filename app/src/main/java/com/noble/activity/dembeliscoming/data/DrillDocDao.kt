@@ -8,7 +8,7 @@ import android.arch.persistence.room.Query
 
 @Dao
 interface DrillDocDao {
-    @Query("SELECT * FROM drill_docs ORDER BY name")
+    @Query("SELECT * FROM drill_docs ORDER BY type")
     fun getDrillDocs() : LiveData<List<DrillDoc>>
 
     @Query("SELECT * FROM drill_docs WHERE id = :drillDocId")

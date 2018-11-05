@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import com.noble.activity.dembeliscoming.data.DrillDoc
 import com.noble.activity.dembeliscoming.databinding.ListItemDrillDocBinding
+import com.noble.activity.dembeliscoming.fragments.main.DrillDocFragmentDirections
 
 class DrillDocAdapter : ListAdapter<DrillDoc,
         DrillDocAdapter.ViewHolder>(DrillDocDiffCallback()) {
@@ -25,10 +26,10 @@ class DrillDocAdapter : ListAdapter<DrillDoc,
             LayoutInflater.from(parent.context), parent, false))
     }
 
-    private fun createOnClickListener(plantId: String): View.OnClickListener {
+    private fun createOnClickListener(drillDocId: String): View.OnClickListener {
         return View.OnClickListener {
-            //val direction = PlantListFragmentDirections.ActionPlantListFragmentToPlantDetailFragment(plantId)
-            //it.findNavController().navigate(direction)
+            val direction = DrillDocFragmentDirections.ActionDrillDocFragmentToDrillDocDetailFragment(drillDocId)
+            it.findNavController().navigate(direction)
         }
     }
 

@@ -20,14 +20,35 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="documentsFragment">
+                  <entry key="drillDocDetailFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="139" />
-                            <option name="y" value="-625" />
+                            <option name="x" value="519" />
+                            <option name="y" value="-638" />
                           </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="drillDocFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="98" />
+                            <option name="y" value="-641" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_drillDocFragment_to_drillDocDetailFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
