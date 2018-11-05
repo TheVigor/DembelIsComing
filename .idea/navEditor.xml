@@ -37,8 +37,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="98" />
-                            <option name="y" value="-641" />
+                            <option name="x" value="143" />
+                            <option name="y" value="-633" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -109,6 +109,12 @@
                   <entry key="loginFragment">
                     <value>
                       <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="304" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
                         <option name="myPositions">
                           <map>
                             <entry key="action_loginFragment_to_mainActivity2">
@@ -123,12 +129,25 @@
                   </entry>
                   <entry key="mainActivity">
                     <value>
-                      <LayoutPositions />
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="596" />
+                            <option name="y" value="65" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
                     </value>
                   </entry>
                   <entry key="splashFragment">
                     <value>
                       <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="65" />
+                          </Point>
+                        </option>
                         <option name="myPositions">
                           <map>
                             <entry key="splashToLogin">
