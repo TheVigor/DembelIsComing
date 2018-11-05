@@ -1,12 +1,12 @@
 package com.noble.activity.dembeliscoming.workers
 
 import android.content.Context
-import android.util.JsonReader
 import android.util.Log
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
 import com.noble.activity.dembeliscoming.data.AppDatabase
 import com.noble.activity.dembeliscoming.data.DrillDoc
 import com.noble.activity.dembeliscoming.utilities.DRILL_DOCS_FILENAME
@@ -16,6 +16,7 @@ class SeedDatabaseWorker(context: Context, workerParameters: WorkerParameters) :
     private val TAG by lazy {SeedDatabaseWorker::class.java.simpleName}
 
     override fun doWork(): Result {
+        
         val drillDocType = object: TypeToken<List<DrillDoc>>() {}.type
         var jsonReader: JsonReader? = null
 
@@ -34,3 +35,6 @@ class SeedDatabaseWorker(context: Context, workerParameters: WorkerParameters) :
         }
     }
 }
+
+
+

@@ -23,7 +23,7 @@
               android:label="settings"
               tools:layout="@layout/fragment_settings"/>
     <fragment android:id="@+id/documentsFragment"
-              android:name="com.noble.activity.dembeliscoming.fragments.main.DocumentsFragment"
+              android:name="com.noble.activity.dembeliscoming.fragments.main.DrillDocFragment"
               android:label="DocumentsFragment"/>
     <fragment android:id="@+id/backgroundPhotoFragment"
               android:name="com.noble.activity.dembeliscoming.fragments.main.BackgroundPhotoFragment"
