@@ -34,10 +34,18 @@ class AboutFragment : Fragment() {
             .setCover(R.mipmap.profile_cover)
             .setLinksAnimated(true)
             .setDividerDashGap(13)
-            .setName("Name")
-            .setSubTitle("Mobile Developer")
+            .setName(R.string.app_name)
+            .setSubTitle("Нас сломать - что небо красить!")
             .setLinksColumnsCount(2)
-            .setBrief("I'm warmed of mobile technologies. Ideas maker, curious and nature lover.")
+            .setBrief("Вот и всё, промчалась служба,\n" +
+                    "Дембель радостный настал.\n" +
+                    "Ты за это время очень\n" +
+                    "Изменился, возмужал.\n" +
+                    "\n" +
+                    "Вспоминай друзей по службе,\n" +
+                    "Память в сердце береги.\n" +
+                    "Все полученные знания\n" +
+                    "Ты на годы сохрани (с).\n")
             .addGitHubLink("TheVigor")
             .addEmailLink("the.noble.activity@gmail.com")
             .addFiveStarsAction()
