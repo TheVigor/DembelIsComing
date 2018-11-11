@@ -1,7 +1,8 @@
 package com.noble.activity.dembeliscoming.activities.main
 
+import android.app.Activity
+import android.content.Intent
 import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.GravityCompat
@@ -11,6 +12,13 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.noble.activity.dembeliscoming.R
 import com.noble.activity.dembeliscoming.databinding.ActivityMainBinding
+import com.noble.activity.dembeliscoming.soldierPrefs
+import com.noble.activity.dembeliscoming.utilities.CameraPictureTaker
+import com.noble.activity.dembeliscoming.utilities.loadUserPhoto
+import com.noble.activity.dembeliscoming.utilities.showToast
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.nav_header.*
+import kotlinx.android.synthetic.main.nav_header.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,6 +39,9 @@ class MainActivity : AppCompatActivity() {
 
         // Set up navigation menu
         binding.navigationView.setupWithNavController(navController)
+
+        navigation_view.getHeaderView(0).header_image
+            .loadUserPhoto(soldierPrefs.soldierImage)
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -45,4 +56,5 @@ class MainActivity : AppCompatActivity() {
             super.onBackPressed()
         }
     }
+
 }

@@ -1,10 +1,14 @@
 package com.noble.activity.dembeliscoming.utilities
 
+import android.app.Activity
 import android.content.Context
 import android.graphics.Color
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
+import com.bumptech.glide.annotation.GlideModule
+import com.bumptech.glide.module.AppGlideModule
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.components.Legend
@@ -264,4 +268,17 @@ fun PieChart.updateData(passedPercent: Float, leftPercent: Float) {
     this.highlightValues(null)
     this.invalidate()
 }
+
+fun ImageView.loadUserPhoto(photoUrl: String?) {
+    GlideApp
+        .with(this)
+        .load(photoUrl)
+        .placeholder(R.drawable.sad_soldier)
+        .error(R.drawable.happy_soldier)
+        .fallback(R.drawable.happy_soldier)
+        .into(this)
+}
+
+@GlideModule
+class CustomGlideModule : AppGlideModule()
 
