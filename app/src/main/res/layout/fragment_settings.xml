@@ -14,14 +14,14 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:src="@drawable/sad_soldier"
-                android:layout_marginTop="15dp"
-                app:civ_border_width="1dp"
+                android:layout_marginTop="25dp"
+                app:civ_border_width="2dp"
                 app:civ_border_color="@color/grey"/>
 
         <TextView

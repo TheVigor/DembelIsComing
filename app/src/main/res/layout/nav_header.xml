@@ -18,18 +18,17 @@
 <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/navigation_drawer_header_height"
+        android:layout_height="200dp"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:background="?attr/colorPrimaryDark"
         android:gravity="bottom"
         android:orientation="vertical"
-        android:padding="@dimen/navigation_drawer_header_padding"
         android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/header_image"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_gravity="center"
         android:src="@drawable/gasmask"
         app:civ_border_width="1dp"
@@ -39,8 +38,9 @@
         android:id="@+id/header_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         android:layout_gravity="bottom|center_horizontal"
-        android:text="Title"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+        android:text="Title"/>
 
 </FrameLayout>
