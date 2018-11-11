@@ -37,14 +37,7 @@ class MainFragment : Fragment() {
 
         leftDembelTimer?.title_text?.text = "Left"
         leftDembelTimer?.timer_icon?.setImageResource(R.drawable.sad_soldier)
-
-        val options = NavOptions.Builder()
-            .setEnterAnim(R.anim.slide_in_right)
-            .setExitAnim(R.anim.slide_out_left)
-            .setPopEnterAnim(R.anim.slide_in_left)
-            .setPopExitAnim(R.anim.slide_out_right)
-            .build()
-
+        
         timer.scheduleAtFixedRate(object: TimerTask(){
             override fun run() {
                 activity?.runOnUiThread {
