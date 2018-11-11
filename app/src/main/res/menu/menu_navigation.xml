@@ -42,6 +42,11 @@
                             android:id="@+id/settingsFragment"
                             android:title="Change profile"
                             android:icon="@mipmap/profile_icon"/>
+                    <item
+                            android:id="@+id/aboutFragment"
+                            android:title="About"
+                            android:icon="@mipmap/about_icon"/>
+
                 </group>
             </menu>
         </item>

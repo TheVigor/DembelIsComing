@@ -37,7 +37,7 @@ class MainFragment : Fragment() {
 
         leftDembelTimer?.title_text?.text = "Left"
         leftDembelTimer?.timer_icon?.setImageResource(R.drawable.sad_soldier)
-        
+
         timer.scheduleAtFixedRate(object: TimerTask(){
             override fun run() {
                 activity?.runOnUiThread {
