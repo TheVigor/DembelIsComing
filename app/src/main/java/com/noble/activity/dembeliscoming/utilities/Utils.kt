@@ -22,7 +22,6 @@ import kotlinx.android.synthetic.main.timer_main.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 val DATE_FORMAT = "dd/MM/yyyy"
 
 val secondsInMilli: Long = 1000L
@@ -30,9 +29,7 @@ val minutesInMilli = secondsInMilli * 60L
 val hoursInMilli = minutesInMilli * 60L
 val daysInMilli = hoursInMilli * 24L
 
-
-fun updateDate(view: View, mDay: Int, mMonth: Int, mYear: Int, isStartDate: Boolean) {
-
+fun mkCalendar(mDay: Int, mMonth: Int, mYear: Int): Calendar {
     val cal = Calendar.getInstance()
     cal.set(Calendar.YEAR, mYear)
     cal.set(Calendar.MONTH, mMonth)
@@ -42,6 +39,29 @@ fun updateDate(view: View, mDay: Int, mMonth: Int, mYear: Int, isStartDate: Bool
     cal.set(Calendar.MINUTE, 0)
     cal.set(Calendar.SECOND, 0)
     cal.set(Calendar.MILLISECOND, 0)
+
+    return cal
+}
+
+fun mkTxtDateByLong(longDate: Long): String {
+    val sdf = SimpleDateFormat(DATE_FORMAT, Locale.US)
+    val textDate = sdf.format(Date(longDate))
+
+    return  textDate
+}
+
+fun mkTxtDateByDMY(mDay: Int, mMonth: Int, mYear: Int): String {
+    val cal = mkCalendar(mDay, mMonth, mYear)
+
+    val sdf = SimpleDateFormat(DATE_FORMAT, Locale.US)
+    val txtDate = sdf.format(cal.time)
+
+    return txtDate
+}
+
+fun updateDate(view: View, mDay: Int, mMonth: Int, mYear: Int, isStartDate: Boolean) {
+
+    val cal = mkCalendar(mDay, mMonth, mYear)
 
     val sdf = SimpleDateFormat(DATE_FORMAT, Locale.US)
 
@@ -60,7 +80,6 @@ fun updateDate(view: View, mDay: Int, mMonth: Int, mYear: Int, isStartDate: Bool
 fun Context.showToast(text: String, duration: Int = Toast.LENGTH_SHORT) {
     Toast.makeText(this, text, duration).show()
 }
-
 
 fun validateNewSoldier(context: Context): Boolean {
     if (soldierPrefs.soldierName.trim().isEmpty()) {
@@ -86,6 +105,43 @@ fun validateNewSoldier(context: Context): Boolean {
     return true
 }
 
+fun validateUpdatedSoldier(context: Context, name: String, startCalendar: Calendar,
+                           endCalendar: Calendar): Boolean {
+
+    val startDate = startCalendar.timeInMillis
+    val endDate = endCalendar.timeInMillis
+
+    if (name.trim().isEmpty()) {
+        context.showToast("Soldier name can't be empty")
+        return false
+    }
+
+    if (startDate == 0L) {
+        context.showToast("Start date can't be empty")
+        return false
+    }
+
+    if (endDate == 0L) {
+        context.showToast("End date can't be empty")
+        return false
+    }
+
+    if (startDate > endDate) {
+        context.showToast("End date should be after start date")
+        return false
+    }
+
+    return true
+}
+
+fun updateSoldier(name: String, startCalendar: Calendar, endCalendar: Calendar) {
+    soldierPrefs.apply {
+        soldierName = name
+        startDate = startCalendar.timeInMillis
+        endDate = endCalendar.timeInMillis
+    }
+}
+
 fun getDiffTime(startDate: Long, endDate: Long) : DiffTime {
 
     var different = endDate - startDate
@@ -109,7 +165,6 @@ fun percentagePassed(currentDate: Long): String {
     val all = (soldierPrefs.endDate - soldierPrefs.startDate).toDouble()
 
     return "%.6f".format((passed / all) * 100)
-
 }
 
 fun percentageLeft(currentDate: Long): String {
@@ -197,7 +252,7 @@ fun PieChart.updateData(passedPercent: Float, leftPercent: Float) {
     colors.add(ColorTemplate.rgb("#008577"))
     colors.add(ColorTemplate.rgb("#f44336"))
 
-    dataSet.setColors(colors)
+    dataSet.colors = colors
 
     val data = PieData(dataSet)
     data.setValueFormatter(PercentFormatter())
