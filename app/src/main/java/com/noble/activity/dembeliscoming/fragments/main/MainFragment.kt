@@ -3,12 +3,16 @@ package com.noble.activity.dembeliscoming.fragments.main
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.*
+import android.widget.Toast
 import androidx.navigation.NavOptions
 import com.noble.activity.dembeliscoming.*
 import kotlinx.android.synthetic.main.main_fragment.*
 import kotlinx.android.synthetic.main.timer_main.view.*
 import java.util.*
 import com.noble.activity.dembeliscoming.utilities.*
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.nav_header.*
+import kotlinx.android.synthetic.main.nav_header.view.*
 
 
 /**
@@ -29,6 +33,8 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        
+        activity?.navigation_view?.getHeaderView(0)?.header_name?.text = soldierPrefs.soldierName
 
         chart?.init()
 
