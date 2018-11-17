@@ -28,7 +28,7 @@ class MainFragment : Fragment() {
 
     private val updateInerval: Long = 1000
     private val updateDelay: Long = 0
-    
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         setHasOptionsMenu(true)
@@ -54,14 +54,8 @@ class MainFragment : Fragment() {
     }
 
     private fun getStateByCurrentDate(currentDate: Long): DembelState {
-        if (currentDate < soldierPrefs.startDate) {
-            return NOT_STARTED
-        }
-
-        if (currentDate >= soldierPrefs.endDate) {
-            return FINISHED
-        }
-
+        if (currentDate < soldierPrefs.startDate) { return NOT_STARTED }
+        if (currentDate >= soldierPrefs.endDate) { return FINISHED }
         return IN_PROGRESS
     }
 
@@ -81,15 +75,22 @@ class MainFragment : Fragment() {
 
         finishedText?.visibility = View.GONE
 
-        notStartedTimer?.title_text?.text = "Time to start"
-        notStartedTimer?.timer_icon?.setImageResource(R.drawable.sad_soldier)
-        notStartedTimer?.visibility = View.GONE
+        notStartedTimer?.apply {
+            title_text.text = "Time to start"
+            timer_icon.setImageResource(R.drawable.sad_soldier)
+            visibility = View.GONE
+        }
 
-        passedDembelTimer?.title_text?.text = "Passed"
-        passedDembelTimer?.timer_icon?.setImageResource(R.drawable.happy_soldier)
+        passedDembelTimer?.apply {
+            title_text.text = "Passed"
+            timer_icon.setImageResource(R.drawable.happy_soldier)
+        }
 
-        leftDembelTimer?.title_text?.text = "Left"
-        leftDembelTimer?.timer_icon?.setImageResource(R.drawable.sad_soldier)
+        leftDembelTimer?.apply {
+            title_text.text = "Left"
+            timer_icon.setImageResource(R.drawable.sad_soldier)
+        }
+
     }
 
     private fun renderNotStartedState(currentDate: Long) {
@@ -102,8 +103,10 @@ class MainFragment : Fragment() {
 
         val diffTimeToStart = getDiffTime(currentDate, soldierPrefs.startDate)
 
-        notStartedTimer?.updateCounter(diffTimeToStart)
-        notStartedTimer?.percentage_text?.text = "${mkTxtDateByLong(soldierPrefs.startDate)}"
+        notStartedTimer?.apply {
+            updateCounter(diffTimeToStart)
+            percentage_text.text = "${mkTxtDateByLong(soldierPrefs.startDate)}"
+        }
     }
 
     private fun renderInProgressState(currentDate: Long) {
@@ -119,11 +122,15 @@ class MainFragment : Fragment() {
         val diffTimeToDembel =
             getDiffTime(currentDate, soldierPrefs.endDate)
 
-        passedDembelTimer?.updateCounter(diffTimeFromStart)
-        passedDembelTimer?.updatePassedPercentage(currentDate)
+        passedDembelTimer?.apply {
+            updateCounter(diffTimeFromStart)
+            updatePassedPercentage(currentDate)
+        }
 
-        leftDembelTimer?.updateCounter(diffTimeToDembel)
-        leftDembelTimer?.updateLeftPercentage(currentDate)
+        leftDembelTimer?.apply {
+            updateCounter(diffTimeToDembel)
+            updateLeftPercentage(currentDate)
+        }
 
         chart?.updateData(
             percentagePassed(currentDate).replace(',', '.').toFloat(),
