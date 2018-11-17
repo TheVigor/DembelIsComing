@@ -24,6 +24,9 @@
         <action android:id="@+id/action_mainFragment_to_aboutFragment" app:destination="@id/aboutFragment"
                 app:enterAnim="@anim/slide_in_left" app:exitAnim="@anim/slide_out_left"
                 app:popEnterAnim="@anim/slide_in_right" app:popExitAnim="@anim/slide_out_right"/>
+        <action android:id="@+id/action_mainFragment_to_internalDocFragment" app:destination="@id/internalDocFragment"
+                app:enterAnim="@anim/slide_in_right" app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left" app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment android:id="@+id/settingsFragment"
               android:name="com.noble.activity.dembeliscoming.fragments.main.SettingsFragment"
@@ -48,4 +51,17 @@
     <fragment android:id="@+id/aboutFragment"
               android:name="com.noble.activity.dembeliscoming.fragments.main.AboutFragment"
               android:label="AboutFragment"/>
+    <fragment android:id="@+id/internalDocFragment"
+              android:name="com.noble.activity.dembeliscoming.fragments.main.internal.InternalDocFragment"
+              android:label="InternalDocFragment">
+        <action android:id="@+id/action_internalDocFragment_to_internalDocDetailFragment"
+                app:destination="@id/internalDocDetailFragment" app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left" app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment android:id="@+id/internalDocDetailFragment"
+              android:name="com.noble.activity.dembeliscoming.fragments.main.internal.InternalDocDetailFragment"
+              android:label="InternalDocDetailFragment">
+        <argument android:name="internalDocId" app:argType="string"/>
+    </fragment>
 </navigation>

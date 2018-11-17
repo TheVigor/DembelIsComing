@@ -21,9 +21,9 @@
                 <group android:id="@+id/documents_group"
                        android:checkableBehavior="single">
                     <item
-                            android:id="@+id/backgroundPhotoFragment"
-                            android:title="Change background image"
-                            android:icon="@mipmap/background_img_icon"/>
+                            android:id="@+id/internalDocFragment"
+                            android:title="Internal Regulations"
+                            android:icon="@mipmap/drill_document_icon"/>
 
                     <item
                             android:id="@+id/drillDocFragment"

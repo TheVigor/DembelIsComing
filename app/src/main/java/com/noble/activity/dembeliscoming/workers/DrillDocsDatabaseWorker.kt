@@ -12,8 +12,8 @@ import com.noble.activity.dembeliscoming.data.drill.DrillDoc
 import com.noble.activity.dembeliscoming.utilities.DRILL_DOCS_FILENAME
 import java.lang.Exception
 
-class DocsDatabaseWorker(context: Context, workerParameters: WorkerParameters) : Worker(context, workerParameters) {
-    private val TAG by lazy {DocsDatabaseWorker::class.java.simpleName}
+class DrillDocsDatabaseWorker(context: Context, workerParameters: WorkerParameters) : Worker(context, workerParameters) {
+    private val TAG by lazy {DrillDocsDatabaseWorker::class.java.simpleName}
 
     override fun doWork(): Result {
         

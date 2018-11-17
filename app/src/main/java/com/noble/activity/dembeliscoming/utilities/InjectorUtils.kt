@@ -3,10 +3,29 @@ package com.noble.activity.dembeliscoming.utilities
 import android.content.Context
 import com.noble.activity.dembeliscoming.data.AppDatabase
 import com.noble.activity.dembeliscoming.data.drill.DrillDocRepository
+import com.noble.activity.dembeliscoming.data.internal.InternalDocRepository
 import com.noble.activity.dembeliscoming.viewmodels.drill.DrillDocDetailViewModelFactory
 import com.noble.activity.dembeliscoming.viewmodels.drill.DrillDocListViewModelFactory
+import com.noble.activity.dembeliscoming.viewmodels.internal.InternalDocDetailViewModelFactory
+import com.noble.activity.dembeliscoming.viewmodels.internal.InternalDocListViewModelFactory
 
 object InjectorUtils {
+
+    private fun getInternalDocRepository(context: Context): InternalDocRepository {
+        return InternalDocRepository.getInstance(AppDatabase.getInstance(context).internalDocDao())
+    }
+
+    fun provideInternalDocListViewModelFactory(context: Context): InternalDocListViewModelFactory {
+        val repository = getInternalDocRepository(context)
+        return InternalDocListViewModelFactory(repository)
+    }
+
+    fun provideInternalDocDetailViewModelFactory(
+        context: Context,
+        internalDocId: String
+    ): InternalDocDetailViewModelFactory {
+        return InternalDocDetailViewModelFactory(getInternalDocRepository(context), internalDocId)
+    }
 
     private fun getDrillDocRepository(context: Context): DrillDocRepository {
         return DrillDocRepository.getInstance(AppDatabase.getInstance(context).drillDocDao())
@@ -21,10 +40,7 @@ object InjectorUtils {
         context: Context,
         drillDocId: String
     ): DrillDocDetailViewModelFactory {
-        return DrillDocDetailViewModelFactory(
-            getDrillDocRepository(context),
-            drillDocId
-        )
+        return DrillDocDetailViewModelFactory(getDrillDocRepository(context), drillDocId)
     }
 
 }

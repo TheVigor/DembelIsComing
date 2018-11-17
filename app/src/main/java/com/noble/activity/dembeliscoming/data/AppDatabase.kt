@@ -9,12 +9,16 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import com.noble.activity.dembeliscoming.data.drill.DrillDoc
 import com.noble.activity.dembeliscoming.data.drill.DrillDocDao
+import com.noble.activity.dembeliscoming.data.internal.InternalDoc
+import com.noble.activity.dembeliscoming.data.internal.InternalDocDao
 import com.noble.activity.dembeliscoming.utilities.DATABASE_NAME
-import com.noble.activity.dembeliscoming.workers.DocsDatabaseWorker
+import com.noble.activity.dembeliscoming.workers.DrillDocsDatabaseWorker
+import com.noble.activity.dembeliscoming.workers.InternalDocsDatabaseWorker
 
-@Database(entities = [DrillDoc::class], version = 1, exportSchema = false)
+@Database(entities = [DrillDoc::class, InternalDoc::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun drillDocDao() : DrillDocDao
+    abstract fun internalDocDao() : InternalDocDao
 
     companion object {
 
@@ -31,8 +35,12 @@ abstract class AppDatabase : RoomDatabase() {
                 .addCallback(object : RoomDatabase.Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)
-                        val request = OneTimeWorkRequestBuilder<DocsDatabaseWorker>().build()
-                        WorkManager.getInstance().enqueue(request)
+                        val drillDocRequest = OneTimeWorkRequestBuilder<DrillDocsDatabaseWorker>().build()
+                        WorkManager.getInstance().enqueue(drillDocRequest)
+
+                        val internalDocRequest = OneTimeWorkRequestBuilder<InternalDocsDatabaseWorker>().build()
+                        WorkManager.getInstance().enqueue(internalDocRequest)
+
                     }
                 })
                 .build()
