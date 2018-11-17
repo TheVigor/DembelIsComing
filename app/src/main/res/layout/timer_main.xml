@@ -43,8 +43,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="4"/>
 
-
-
     <TextView
             android:id="@+id/days_count_text"
             style="@style/timer_text_count"
