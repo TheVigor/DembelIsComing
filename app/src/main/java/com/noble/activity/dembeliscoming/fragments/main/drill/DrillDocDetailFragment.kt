@@ -1,17 +1,14 @@
-package com.noble.activity.dembeliscoming.fragments.main
+package com.noble.activity.dembeliscoming.fragments.main.drill
 
-import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.support.v4.app.Fragment
-import android.content.Intent
 import android.databinding.DataBindingUtil
-import android.os.Build
 import android.os.Bundle
 import android.view.*
 import com.noble.activity.dembeliscoming.R
 import com.noble.activity.dembeliscoming.databinding.FragmentDrillDetailBinding
 import com.noble.activity.dembeliscoming.utilities.InjectorUtils
-import com.noble.activity.dembeliscoming.viewmodels.DrillDocDetailViewModel
+import com.noble.activity.dembeliscoming.viewmodels.drill.DrillDocDetailViewModel
 
 class DrillDocDetailFragment : Fragment() {
 
@@ -20,9 +17,9 @@ class DrillDocDetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val plantId = DrillDocDetailFragmentArgs.fromBundle(arguments).drillDocId
+        val drillDocId = DrillDocDetailFragmentArgs.fromBundle(arguments).drillDocId
 
-        val factory = InjectorUtils.provideDrillDocDetailViewModelFactory(requireActivity(), plantId)
+        val factory = InjectorUtils.provideDrillDocDetailViewModelFactory(requireActivity(), drillDocId)
         val drillDocDetailViewModel = ViewModelProviders.of(this, factory)
             .get(DrillDocDetailViewModel::class.java)
 

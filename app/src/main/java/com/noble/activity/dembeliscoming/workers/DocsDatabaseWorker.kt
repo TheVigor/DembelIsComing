@@ -8,12 +8,12 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.JsonReader
 import com.noble.activity.dembeliscoming.data.AppDatabase
-import com.noble.activity.dembeliscoming.data.DrillDoc
+import com.noble.activity.dembeliscoming.data.drill.DrillDoc
 import com.noble.activity.dembeliscoming.utilities.DRILL_DOCS_FILENAME
 import java.lang.Exception
 
-class SeedDatabaseWorker(context: Context, workerParameters: WorkerParameters) : Worker(context, workerParameters) {
-    private val TAG by lazy {SeedDatabaseWorker::class.java.simpleName}
+class DocsDatabaseWorker(context: Context, workerParameters: WorkerParameters) : Worker(context, workerParameters) {
+    private val TAG by lazy {DocsDatabaseWorker::class.java.simpleName}
 
     override fun doWork(): Result {
         

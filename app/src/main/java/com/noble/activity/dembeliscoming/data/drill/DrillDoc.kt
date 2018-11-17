@@ -1,4 +1,4 @@
-package com.noble.activity.dembeliscoming.data
+package com.noble.activity.dembeliscoming.data.drill
 
 import android.accounts.AuthenticatorDescription
 import android.arch.persistence.room.ColumnInfo

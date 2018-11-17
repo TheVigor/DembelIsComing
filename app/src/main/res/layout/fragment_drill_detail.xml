@@ -5,7 +5,7 @@
     <data>
         <variable
                 name="viewModel"
-                type="com.noble.activity.dembeliscoming.viewmodels.DrillDocDetailViewModel" />
+                type="com.noble.activity.dembeliscoming.viewmodels.drill.DrillDocDetailViewModel" />
     </data>
 
     <android.support.design.widget.CoordinatorLayout

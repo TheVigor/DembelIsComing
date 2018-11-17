@@ -1,9 +1,9 @@
-package com.noble.activity.dembeliscoming.viewmodels
+package com.noble.activity.dembeliscoming.viewmodels.drill
 
 import android.arch.lifecycle.MediatorLiveData
 import android.arch.lifecycle.ViewModel
-import com.noble.activity.dembeliscoming.data.DrillDoc
-import com.noble.activity.dembeliscoming.data.DrillDocRepository
+import com.noble.activity.dembeliscoming.data.drill.DrillDoc
+import com.noble.activity.dembeliscoming.data.drill.DrillDocRepository
 
 class DrillDocListViewModel internal constructor(
     private val drillDocRepository: DrillDocRepository

@@ -7,8 +7,10 @@ import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
+import com.noble.activity.dembeliscoming.data.drill.DrillDoc
+import com.noble.activity.dembeliscoming.data.drill.DrillDocDao
 import com.noble.activity.dembeliscoming.utilities.DATABASE_NAME
-import com.noble.activity.dembeliscoming.workers.SeedDatabaseWorker
+import com.noble.activity.dembeliscoming.workers.DocsDatabaseWorker
 
 @Database(entities = [DrillDoc::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
@@ -29,7 +31,7 @@ abstract class AppDatabase : RoomDatabase() {
                 .addCallback(object : RoomDatabase.Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)
-                        val request = OneTimeWorkRequestBuilder<SeedDatabaseWorker>().build()
+                        val request = OneTimeWorkRequestBuilder<DocsDatabaseWorker>().build()
                         WorkManager.getInstance().enqueue(request)
                     }
                 })

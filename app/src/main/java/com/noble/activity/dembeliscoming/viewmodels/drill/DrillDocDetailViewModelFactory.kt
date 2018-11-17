@@ -1,8 +1,8 @@
-package com.noble.activity.dembeliscoming.viewmodels
+package com.noble.activity.dembeliscoming.viewmodels.drill
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
-import com.noble.activity.dembeliscoming.data.DrillDocRepository
+import com.noble.activity.dembeliscoming.data.drill.DrillDocRepository
 
 class DrillDocDetailViewModelFactory(
     private val drillDocRepository: DrillDocRepository,
@@ -11,6 +11,9 @@ class DrillDocDetailViewModelFactory(
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return DrillDocDetailViewModel(drillDocRepository, drillDocId) as T
+        return DrillDocDetailViewModel(
+            drillDocRepository,
+            drillDocId
+        ) as T
     }
 }

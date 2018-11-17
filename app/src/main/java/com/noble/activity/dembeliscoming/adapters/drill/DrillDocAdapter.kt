@@ -1,4 +1,4 @@
-package com.noble.activity.dembeliscoming.adapters
+package com.noble.activity.dembeliscoming.adapters.drill
 
 import android.support.v7.recyclerview.extensions.ListAdapter
 import android.support.v7.widget.RecyclerView
@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
-import com.noble.activity.dembeliscoming.data.DrillDoc
+import com.noble.activity.dembeliscoming.data.drill.DrillDoc
 import com.noble.activity.dembeliscoming.databinding.ListItemDrillDocBinding
-import com.noble.activity.dembeliscoming.fragments.main.DrillDocFragmentDirections
+import com.noble.activity.dembeliscoming.fragments.main.drill.DrillDocFragmentDirections
 
 class DrillDocAdapter : ListAdapter<DrillDoc,
         DrillDocAdapter.ViewHolder>(DrillDocDiffCallback()) {
@@ -22,8 +22,11 @@ class DrillDocAdapter : ListAdapter<DrillDoc,
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(ListItemDrillDocBinding.inflate(
-            LayoutInflater.from(parent.context), parent, false))
+        return ViewHolder(
+            ListItemDrillDocBinding.inflate(
+                LayoutInflater.from(parent.context), parent, false
+            )
+        )
     }
 
     private fun createOnClickListener(drillDocId: String): View.OnClickListener {

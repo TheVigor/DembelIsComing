@@ -2,10 +2,9 @@ package com.noble.activity.dembeliscoming.utilities
 
 import android.content.Context
 import com.noble.activity.dembeliscoming.data.AppDatabase
-import com.noble.activity.dembeliscoming.data.DrillDocRepository
-import com.noble.activity.dembeliscoming.viewmodels.DrillDocDetailViewModelFactory
-import com.noble.activity.dembeliscoming.viewmodels.DrillDocListViewModel
-import com.noble.activity.dembeliscoming.viewmodels.DrillDocListViewModelFactory
+import com.noble.activity.dembeliscoming.data.drill.DrillDocRepository
+import com.noble.activity.dembeliscoming.viewmodels.drill.DrillDocDetailViewModelFactory
+import com.noble.activity.dembeliscoming.viewmodels.drill.DrillDocListViewModelFactory
 
 object InjectorUtils {
 
@@ -24,7 +23,8 @@ object InjectorUtils {
     ): DrillDocDetailViewModelFactory {
         return DrillDocDetailViewModelFactory(
             getDrillDocRepository(context),
-            drillDocId)
+            drillDocId
+        )
     }
 
 }

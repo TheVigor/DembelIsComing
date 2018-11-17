@@ -1,4 +1,4 @@
-package com.noble.activity.dembeliscoming.data
+package com.noble.activity.dembeliscoming.data.drill
 
 class DrillDocRepository private constructor(private val drillDocDao: DrillDocDao) {
 
@@ -12,7 +12,8 @@ class DrillDocRepository private constructor(private val drillDocDao: DrillDocDa
 
         fun getInstance(drillDocDao: DrillDocDao) =
                 instance ?: synchronized(this) {
-                    instance ?: DrillDocRepository(drillDocDao).also { instance = it }
+                    instance
+                        ?: DrillDocRepository(drillDocDao).also { instance = it }
                 }
     }
 }

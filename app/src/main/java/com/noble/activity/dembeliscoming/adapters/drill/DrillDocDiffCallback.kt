@@ -1,7 +1,7 @@
-package com.noble.activity.dembeliscoming.adapters
+package com.noble.activity.dembeliscoming.adapters.drill
 
 import android.support.v7.util.DiffUtil
-import com.noble.activity.dembeliscoming.data.DrillDoc
+import com.noble.activity.dembeliscoming.data.drill.DrillDoc
 
 class DrillDocDiffCallback : DiffUtil.ItemCallback<DrillDoc>() {
 

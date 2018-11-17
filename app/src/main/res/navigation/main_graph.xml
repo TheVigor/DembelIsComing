@@ -30,7 +30,7 @@
               android:label="settings"
               tools:layout="@layout/fragment_settings"/>
     <fragment android:id="@+id/drillDocFragment"
-              android:name="com.noble.activity.dembeliscoming.fragments.main.DrillDocFragment"
+              android:name="com.noble.activity.dembeliscoming.fragments.main.drill.DrillDocFragment"
               android:label="DrillDocFragment">
         <action android:id="@+id/action_drillDocFragment_to_drillDocDetailFragment"
                 app:destination="@id/drillDocDetailFragment" app:enterAnim="@anim/slide_in_right"
@@ -41,7 +41,7 @@
               android:name="com.noble.activity.dembeliscoming.fragments.main.BackgroundPhotoFragment"
               android:label="BackgroundPhotoFragment"/>
     <fragment android:id="@+id/drillDocDetailFragment"
-              android:name="com.noble.activity.dembeliscoming.fragments.main.DrillDocDetailFragment"
+              android:name="com.noble.activity.dembeliscoming.fragments.main.drill.DrillDocDetailFragment"
               android:label="DrillDocDetailFragment">
         <argument android:name="drillDocId" app:argType="string"/>
     </fragment>

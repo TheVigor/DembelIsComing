@@ -1,16 +1,14 @@
-package com.noble.activity.dembeliscoming.fragments.main
+package com.noble.activity.dembeliscoming.fragments.main.drill
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.*
-import com.noble.activity.dembeliscoming.R
-import com.noble.activity.dembeliscoming.adapters.DrillDocAdapter
-import com.noble.activity.dembeliscoming.data.DrillDoc
+import com.noble.activity.dembeliscoming.adapters.drill.DrillDocAdapter
 import com.noble.activity.dembeliscoming.databinding.FragmentDrillBinding
 import com.noble.activity.dembeliscoming.utilities.InjectorUtils
-import com.noble.activity.dembeliscoming.viewmodels.DrillDocListViewModel
+import com.noble.activity.dembeliscoming.viewmodels.drill.DrillDocListViewModel
 
 class DrillDocFragment : Fragment() {
 
