@@ -15,8 +15,6 @@ import com.noble.activity.dembeliscoming.viewmodels.DrillDocDetailViewModel
 
 class DrillDocDetailFragment : Fragment() {
 
-    private lateinit var shareText: String
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,14 +31,6 @@ class DrillDocDetailFragment : Fragment() {
             viewModel = drillDocDetailViewModel
             setLifecycleOwner(this@DrillDocDetailFragment)
         }
-
-        drillDocDetailViewModel.drillDoc.observe(this, Observer { drillDoc ->
-            shareText = if (drillDoc == null) {
-                ""
-            } else {
-                drillDoc.name
-            }
-        })
 
         setHasOptionsMenu(true)
 
