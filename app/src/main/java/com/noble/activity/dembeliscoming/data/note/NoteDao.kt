@@ -17,7 +17,7 @@ import android.arch.persistence.room.*
     fun updateNote(note: Note): Int
 
     @Query("DELETE FROM notes WHERE id = :noteId")
-    fun deleteNoteById(noteId: String): Int
+    fun deleteNote(noteId: String): Int
 
     @Query("DELETE FROM notes")
     fun deleteNotes()
