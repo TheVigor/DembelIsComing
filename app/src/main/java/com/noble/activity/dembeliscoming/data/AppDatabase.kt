@@ -11,14 +11,18 @@ import com.noble.activity.dembeliscoming.data.drill.DrillDoc
 import com.noble.activity.dembeliscoming.data.drill.DrillDocDao
 import com.noble.activity.dembeliscoming.data.internal.InternalDoc
 import com.noble.activity.dembeliscoming.data.internal.InternalDocDao
+import com.noble.activity.dembeliscoming.data.note.Note
+import com.noble.activity.dembeliscoming.data.note.NoteDao
 import com.noble.activity.dembeliscoming.utilities.DATABASE_NAME
 import com.noble.activity.dembeliscoming.workers.DrillDocsDatabaseWorker
 import com.noble.activity.dembeliscoming.workers.InternalDocsDatabaseWorker
 
-@Database(entities = [DrillDoc::class, InternalDoc::class], version = 1, exportSchema = false)
+@Database(entities = [DrillDoc::class, InternalDoc::class, Note::class],
+    version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun drillDocDao() : DrillDocDao
-    abstract fun internalDocDao() : InternalDocDao
+    abstract fun drillDocDao(): DrillDocDao
+    abstract fun internalDocDao(): InternalDocDao
+    abstract fun noteDao(): NoteDao
 
     companion object {
 
