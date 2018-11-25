@@ -17,14 +17,13 @@
         <action android:id="@+id/action_mainFragment_to_documentsFragment" app:destination="@id/drillDocFragment"
                 app:enterAnim="@anim/slide_in_right" app:exitAnim="@anim/slide_out_left"
                 app:popEnterAnim="@anim/slide_in_left" app:popExitAnim="@anim/slide_out_right"/>
-        <action android:id="@+id/action_mainFragment_to_backgroundPhotoFragment"
-                app:destination="@id/backgroundPhotoFragment" app:enterAnim="@anim/slide_in_right"
-                app:exitAnim="@anim/slide_out_left" app:popEnterAnim="@anim/slide_in_left"
-                app:popExitAnim="@anim/slide_out_right"/>
         <action android:id="@+id/action_mainFragment_to_aboutFragment" app:destination="@id/aboutFragment"
                 app:enterAnim="@anim/slide_in_left" app:exitAnim="@anim/slide_out_left"
                 app:popEnterAnim="@anim/slide_in_right" app:popExitAnim="@anim/slide_out_right"/>
         <action android:id="@+id/action_mainFragment_to_internalDocFragment" app:destination="@id/internalDocFragment"
+                app:enterAnim="@anim/slide_in_right" app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left" app:popExitAnim="@anim/slide_out_right"/>
+        <action android:id="@+id/action_mainFragment_to_noteFragment" app:destination="@id/noteFragment"
                 app:enterAnim="@anim/slide_in_right" app:exitAnim="@anim/slide_out_left"
                 app:popEnterAnim="@anim/slide_in_left" app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
@@ -40,9 +39,6 @@
                 app:exitAnim="@anim/slide_out_left" app:popEnterAnim="@anim/slide_in_left"
                 app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
-    <fragment android:id="@+id/backgroundPhotoFragment"
-              android:name="com.noble.activity.dembeliscoming.fragments.main.BackgroundPhotoFragment"
-              android:label="BackgroundPhotoFragment"/>
     <fragment android:id="@+id/drillDocDetailFragment"
               android:name="com.noble.activity.dembeliscoming.fragments.main.drill.DrillDocDetailFragment"
               android:label="DrillDocDetailFragment">
@@ -64,4 +60,7 @@
               android:label="InternalDocDetailFragment">
         <argument android:name="internalDocId" app:argType="string"/>
     </fragment>
+    <fragment android:id="@+id/noteFragment"
+              android:name="com.noble.activity.dembeliscoming.fragments.main.note.NoteFragment"
+              android:label="NoteFragment"/>
 </navigation>

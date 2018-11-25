@@ -9,11 +9,17 @@ import com.noble.activity.dembeliscoming.viewmodels.drill.DrillDocDetailViewMode
 import com.noble.activity.dembeliscoming.viewmodels.drill.DrillDocListViewModelFactory
 import com.noble.activity.dembeliscoming.viewmodels.internal.InternalDocDetailViewModelFactory
 import com.noble.activity.dembeliscoming.viewmodels.internal.InternalDocListViewModelFactory
+import com.noble.activity.dembeliscoming.viewmodels.note.NoteListViewModelFactory
 
 object InjectorUtils {
 
     private fun getNoteRepository(context: Context): NoteRepository {
         return  NoteRepository.getInstance(AppDatabase.getInstance(context).noteDao())
+    }
+
+    fun provideNoteListViewModelFactory(context: Context): NoteListViewModelFactory {
+        val repository = getNoteRepository(context)
+        return  NoteListViewModelFactory(repository)
     }
 
     private fun getInternalDocRepository(context: Context): InternalDocRepository {

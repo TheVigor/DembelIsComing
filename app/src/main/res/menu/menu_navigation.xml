@@ -10,6 +10,10 @@
                         android:id="@+id/mainFragment"
                         android:title="Timer"
                         android:icon="@mipmap/timer_icon"/>
+                    <item
+                            android:id="@+id/noteFragment"
+                            android:title="Notes"
+                            android:icon="@mipmap/notes_icon"/>
 
                 </group>
             </menu>
