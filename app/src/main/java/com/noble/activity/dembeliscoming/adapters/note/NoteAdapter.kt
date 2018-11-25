@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import com.noble.activity.dembeliscoming.data.note.Note
 import com.noble.activity.dembeliscoming.databinding.ListItemNoteBinding
+import com.noble.activity.dembeliscoming.fragments.main.note.NoteFragmentDirections
 
 class NoteAdapter : ListAdapter<Note,
         NoteAdapter.ViewHolder>(NoteDiffCallback()) {
@@ -28,10 +29,10 @@ class NoteAdapter : ListAdapter<Note,
         )
     }
 
-    private fun createOnClickListener(internalDocId: String): View.OnClickListener {
+    private fun createOnClickListener(noteId: String): View.OnClickListener {
         return View.OnClickListener {
-            //val direction = InternalDocFragmentDirections.ActionInternalDocFragmentToInternalDocDetailFragment(internalDocId)
-            //it.findNavController().navigate(direction)
+            val direction = NoteFragmentDirections.ActionNoteFragmentToNoteAddEditFragment(noteId)
+            it.findNavController().navigate(direction)
         }
     }
 
@@ -42,7 +43,7 @@ class NoteAdapter : ListAdapter<Note,
         fun bind(listener: View.OnClickListener, item: Note) {
             binding.apply {
                 //clickListener = listener
-                //internalDoc = item
+                note = item
                 executePendingBindings()
             }
         }

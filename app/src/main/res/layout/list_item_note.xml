@@ -6,7 +6,7 @@
     <data>
 
         <variable
-                name="item"
+                name="note"
                 type="com.noble.activity.dembeliscoming.data.note.Note" />
     </data>
 
@@ -30,7 +30,7 @@
                     android:layout_height="wrap_content"
                     android:padding="4dp"
                     android:layout_marginStart="16dp"
-                    android:text="@{item.title}"
+                    android:text="@{note.title}"
                     android:textSize="12sp"
                     android:textStyle="bold" />
 
@@ -39,11 +39,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/text_note_title"
-                    android:drawableStart="@drawable/sad_soldier"
+                    android:drawableStart="@mipmap/notes_icon"
                     android:gravity="start|center"
                     android:padding="4dp"
                     android:layout_marginStart="16dp"
-                    android:text="@{item.description}" />
+                    android:text="@{note.description}" />
 
             <ImageButton
                     android:padding="4dp"
@@ -54,7 +54,7 @@
                     android:layout_below="@id/text_description"
                     android:background="?attr/selectableItemBackground"
                     android:contentDescription="Edit note"
-                    android:src="@drawable/happy_soldier"
+                    android:src="@mipmap/notes_icon"
                     android:textColor="@color/colorPrimary" />
 
             <ImageButton
@@ -67,7 +67,7 @@
                     android:background="?attr/selectableItemBackground"
                     android:contentDescription="Delete note"
                     android:padding="4dp"
-                    android:src="@drawable/sad_soldier"
+                    android:src="@mipmap/notes_icon"
                     android:textColor="@color/colorPrimary" />
 
             <CheckBox

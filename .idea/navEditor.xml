@@ -127,14 +127,35 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="noteAddEditFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="522" />
+                            <option name="y" value="-249" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="noteFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="143" />
-                            <option name="y" value="-239" />
+                            <option name="x" value="138" />
+                            <option name="y" value="-253" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_noteFragment_to_noteAddEditFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>

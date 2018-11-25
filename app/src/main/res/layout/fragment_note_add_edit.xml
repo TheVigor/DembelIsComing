@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+         xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.noble.activity.dembeliscoming.viewmodels.note.NoteAddEditViewModel" />
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/coordinatorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <EditText
+                    android:id="@+id/note_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Note title"
+                    android:text="@={viewModel.note.title}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:maxLines="1"/>
+
+            <EditText
+                    android:id="@+id/note_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:gravity="top"
+                    android:hint="Note description"
+                    android:text="@={viewModel.note.description}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/note_title"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_edit_task_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:src="@drawable/sad_soldier"
+                app:fabSize="normal"
+                android:layout_gravity="center|bottom" />
+    </android.support.design.widget.CoordinatorLayout>
+
+</layout>
